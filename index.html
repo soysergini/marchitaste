@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marchitaste - Sergini</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      height: 100vh;
+      background-color: #0a0a0a;
+      background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+      background-blend-mode: overlay;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: 'Montserrat', sans-serif;
+      color: #ffc94a;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeInTitle 1s ease forwards;
+      animation-delay: 0.5s;
+    }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      opacity: 0;
+      animation: fadeInSub 1s ease forwards;
+      animation-delay: 1.2s;
+    }
+    a {
+      padding: 1rem 2.5rem;
+      background: #ffc94a;
+      color: #0a0a0a;
+      border-radius: 50px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1.2rem;
+      box-shadow: 0 0 20px rgba(255, 201, 74, 0.3);
+      transition: all 0.3s ease;
+      opacity: 0;
+      animation: fadeInBtn 1s ease forwards;
+      animation-delay: 2s;
+    }
+    a:hover {
+      background: #ffb700;
+      box-shadow: 0 0 40px rgba(255, 183, 0, 0.7);
+      transform: scale(1.05) rotate(-1deg);
+    }
+    .name {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      font-size: 1rem;
+      color: #ffc94a80;
+      letter-spacing: 2px;
+      font-weight: 700;
+      opacity: 0;
+      animation: fadeInName 1s ease forwards;
+      animation-delay: 0.2s;
+    }
+    #playAudioBtn {
+      margin-top: 20px;
+      background: none;
+      border: 2px solid #ffc94a;
+      color: #ffc94a;
+      padding: 0.5rem 1.5rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #playAudioBtn:hover {
+      background: #ffc94a;
+      color: #0a0a0a;
+    }
+    @keyframes fadeInTitle {
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(-20px); }
+    }
+    @keyframes fadeInSub {
+      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(20px); }
+    }
+    @keyframes fadeInBtn {
+      to { opacity: 1; transform: scale(1); }
+      from { opacity: 0; transform: scale(0.95); }
+    }
+    @keyframes fadeInName {
+      to { opacity: 1; transform: translateX(0); }
+      from { opacity: 0; transform: translateX(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2023/03/29/audio_768c7f90e5.mp3?filename=click-124467.mp3"></audio>
+  <audio id="autoPlayAudio" src="/mnt/data/untitled.mp3" loop></audio>
+
+  <div class="name">Sergini</div>
+  <h1>Marchitaste</h1>
+  <h2>Una canción que florece en el dolor y marchita en la memoria. Escúchala ahora.</h2>
+  <a href="https://open.spotify.com/track/TU-LINK-DE-SPOTIFY" target="_blank" onclick="document.getElementById('clickSound').play()">Escuchar en Spotify</a>
+  <button id="playAudioBtn" onclick="document.getElementById('autoPlayAudio').play(); this.style.display='none'">Activar sonido 🎵</button>
+</body>
+</html>
